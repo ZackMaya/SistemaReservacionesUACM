@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="ISO-8859-1"/>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    
+<title>Sistema de Reservaciones</title>
+</head>
+<body>
+<header id="main-header">
+	
+		<a id="logo-header" href="/">
+			<span class="site-name"><h2>Restaurante UACM</h2> </span>
+		</a>
+	</header>
+	<section id="main-content">
+		
+    <article>
+    	<div class="content">
+    	<table>
+    		<tr>
+    			<th>Datos Reservacion</th>
+    			<th>Informacion del cliente</th>
+    		</tr>
+    		
+    		<tr th:each="reserva:${reservas}" th:value="${reserva.id}">
+    		<td>
+    		<p>Fecha: <label th:text="${reserva.fecha}"></label></p>
+    		<p>Numero de Personas: <label th:text="${reserva.numPersonas}"></label></p>
+    		<p>Numero de Mesas: <label th:text="${reserva.numMesas}"></label></p>
+    		<p>Horario: <label th:text="${reserva.horario}"></label></p> 
+    		</td>
+    		<td>   
+    		<p>Cliente: <label th:text="${reserva.cliente.id}"></label></p>	
+    		<p>Nombre Cliente: <label th:text="${reserva.cliente.nombre}"></label></p>
+    		<p>Email: <label th:text="${reserva.cliente.email}"></label></p>
+    		<p>Telefono <label th:text="${reserva.cliente.telefono}"></label></p>
+    		</td>
+    		</tr>
+    	</table>
+    	</div>
+    </article>
+	</section>	
+    <footer id="main-footer">
+		<p>Christian Fuentes</p>
+		<form th:action="@{/logout}" method="post">
+					<p>Cerrar Sesion </p><input type="submit" value="Sign Out"/>
+			</form>
+	</footer>
+	
+</body>
+</html>

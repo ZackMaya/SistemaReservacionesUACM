@@ -1,0 +1,63 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.5
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Gradle Quickstart',
+                   'Implementation-Version': version
+    }
+}
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
+		classpath("net.saliman:gradle-cobertura-plugin:2.3.1")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'eclipse'
+apply plugin: 'net.saliman.cobertura'
+
+
+jar {
+	baseName = 'SistemaReservaciones'
+	version  = '0.1.0'
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	compile("org.springframework.boot:spring-boot-starter-web")
+	compile("org.springframework.boot:spring-boot-starter-test")
+	compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("org.springframework.boot:spring-boot-starter-security")
+	 compile("org.springframework.boot:spring-boot-starter-mail")
+	compile("org.dbunit:dbunit:2.5.2")
+	compile("org.thymeleaf:thymeleaf-spring4")
+	compile("mysql:mysql-connector-java:5.1.31")
+	compile group: "com.google.guava", name: "guava", version: "11.0.2"
+    testCompile("junit:junit")
+    
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.2.1'
+}
+
+cobertura {
+
+coverageExcludes = ['.*if\\(log.isDebugEnabled.*']
+
+coverageIgnores = [ 'log.debug.*', 'if(log.isDebugEnabled.*', 'return.*', 'this.*' ]
+
+}
+

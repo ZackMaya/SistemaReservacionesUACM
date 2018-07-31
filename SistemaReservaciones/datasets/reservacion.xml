@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <reservacion idreservacion="18" fecha="2017-06-08" num_personas="2" num_mesas="1" horario="12:30" idcliente="18"/>
+</dataset>

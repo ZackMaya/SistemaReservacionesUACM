@@ -1,0 +1,4 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <cliente idcliente="18" nombre="Christian" telefono="5517373377" email="kriztianfv97@gmail.com" comentario="Primera prueba de insertar clientes en la BD con su respectiva reservacion"/>
+</dataset>

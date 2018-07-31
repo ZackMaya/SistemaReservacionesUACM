@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+	<meta charset="ISO-8859-1"/>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    
+<title>Sistema de Reservaciones</title>
+</head>
+<body>
+	
+	<header id="main-header">
+	
+		<a id="logo-header" href="/">
+			<span class="site-name"> <h2> Restaurante UACM </h2></span>
+		</a>
+		
+	</header>
+	<section id="main-content">
+
+    <article>
+	
+	<div class="content">
+	
+		<h1>Reservaciones</h1>
+		<h4>Campos Obligatorios *</h4>
+	
+			<h3>Datos de Reservacion</h3>
+			<form th:action="@{/reservacion}" method="post">
+				*Nombre: <input type="text" placeholder="Juan" name="nombre" th:text="${nombre}"/><br/>
+				*Telefono: <input type="text" placeholder="12345678" name="telefono" th:text="${telefono}"/><br/>
+				*Email: <input type="text" placeholder="kriz@gmail.com" name="email" th:text="${email}"/><br/>
+				*Comentario: <br/><textarea rows="10" cols="40" name="comentario" placeholder="Escribir Comentario" th:text="${comentario}"></textarea>
+				<br/>
+				<input type="submit" value="Siguiente >>" class="btn"/>
+			</form>	
+	</div>
+	</article>
+	</section>
+	<footer id="main-footer"><form th:action="@{/logout}" method="post">
+					<p>Click para Login!!! </p><input type="submit" value="Login"/>
+			</form></footer>
+</body>
+</html>

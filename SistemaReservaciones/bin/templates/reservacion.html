@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="ISO-8859-1"/>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    
+<title>Sistema de Reservaciones</title>
+</head>
+<body>
+<header id="main-header">
+	
+		<a id="logo-header" href="/">
+			<span class="site-name"><h2>Restaurante UACM</h2> </span>
+		</a>
+	</header>
+	<section id="main-content">
+
+    <article>
+	<div class="content">
+		<h1>Reservaciones</h1>
+		<h4>Campos Obligatorios *</h4>
+			
+				<h3>Nueva Reservacion</h3>
+				
+				<form method="post" th:object="${cliente}" th:action="@{/reservacion/confirmacion}">
+					*Seleccionar Fecha: <input type="date" placeholder="17/03/2017" name="fecha"/><br/>
+					*Numero de Personas: <input type="number" placeholder="6" name="noPersonas"/><br/>
+					*Numero de Mesas: <input type="number" placeholder="3" name="noMesas"/><br/>
+					Seleccione su horario: <select name="horario">
+						<option value="9:00">09:00</option>
+						<option value="10:00">10:00</option>
+						<option value="11:00">11:00</option>
+						<option value="12:00">12:00</option>
+						<option value="13:00">13:00</option>
+						<option value="14:00">14:00</option>
+						<option value="15:00">15:00</option>
+						<option value="16:00">16:00</option>
+						<option value="17:00">17:00</option>
+						<option value="18:00">18:00</option>
+						<option value="19:00">19:00</option>
+						<option value="20:00">20:00</option>
+						<option value="21:00">21:00</option>
+						<option value="22:00">22:00</option>
+					</select> 
+					<input type="hidden" name="idCliente" th:value="${id}"/>
+					<input type="hidden" name="nombre" th:value="${nombre}"/>
+					<input type="hidden" name="telefono" th:value="${telefono}"/>
+					<input type="hidden" name="email" th:value="${email}"/>
+					<input type="hidden" name="comentario" th:value="${comentario}"/>
+					<br/><br/>
+					<input type="submit" value="Registrar" class="btn"/>
+				</form>
+				
+				</div>
+				</article>
+	</section>
+	<footer id="main-footer"><form th:action="@{/logout}" method="post">
+					<p>Christian Fuentes </p>
+			</form></footer>
+</body>
+</html>

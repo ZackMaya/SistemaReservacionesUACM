@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="ISO-8859-1"/>
+	<meta charset="utf-8"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    
+<title>Sistema de Reservaciones</title>
+</head>
+<body>
+<header id="main-header">
+	
+		<a id="logo-header" href="/">
+			<span class="site-name"><h2>Restaurante UACM</h2> </span>
+		</a>
+	</header>
+	<section id="main-content">
+
+    <article>
+    <div class="content">
+		<h2>Login</h2>
+		
+				<div th:if="${param.error}">
+		            Invalid username and password.
+		        </div>
+		        <div th:if="${param.logout}">
+		            You have been logged out.
+		        </div>
+				<h3>Inciar Sesion</h3>
+				<form method="post" th:action="@{/login}">
+			
+					*Email: <input type="text" placeholder="restaurante@gmail.com" name="username"/><br/>
+					*Contraseña: <input type="password" placeholder="********" name="password"/><br/><br/>
+					<input type="submit" value="Iniciar Sesion" class="btn"/>
+				</form>	
+				</div>			
+			</article>
+			</section>
+			<footer id="main-footer">
+					<p>Christian Fuentes</p></footer>
+			
+</body>
+</html>
